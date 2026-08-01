@@ -48,12 +48,13 @@
 
     <section class="section" style="padding-top:0">
       <div class="container">
-        <div class="board-tabs" role="tablist" aria-label="보드 메뉴">
-          <button class="filter-btn is-active" type="button" role="tab" aria-selected="true" data-board-tab="notice" id="tab-notice">NOTICE</button>
-          <button class="filter-btn" type="button" role="tab" aria-selected="false" data-board-tab="faq" id="tab-faq">FAQ</button>
+        <div class="board-jump" aria-label="보드 바로가기">
+          <a class="filter-btn" href="#notice">NOTICE</a>
+          <a class="filter-btn" href="#faq">FAQ</a>
         </div>
 
-        <div class="board-panel is-active" id="panel-notice" role="tabpanel" aria-labelledby="tab-notice" data-board-panel="notice">
+        <div class="board-block" id="notice">
+          <h2 class="board-heading">NOTICE</h2>
           <div class="notice-list">
             <details class="notice-item reveal" open>
               <summary>
@@ -80,7 +81,8 @@
           </div>
         </div>
 
-        <div class="board-panel" id="panel-faq" role="tabpanel" aria-labelledby="tab-faq" data-board-panel="faq" hidden>
+        <div class="board-block" id="faq">
+          <h2 class="board-heading">FAQ</h2>
           <div class="faq-list">
             <details class="faq-item reveal" open>
               <summary>방 사진 보고 싶어요</summary>

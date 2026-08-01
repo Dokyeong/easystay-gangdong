@@ -707,15 +707,33 @@ button {
   font-size: 1rem;
 }
 
-.board-tabs {
+.board-jump {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
-.board-panel[hidden] {
-  display: none;
+.board-jump .filter-btn {
+  text-decoration: none;
+}
+
+.board-block {
+  scroll-margin-top: calc(var(--nav-h) + 20px);
+}
+
+.board-block + .board-block {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.board-heading {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }
 
 .notice-list {
