@@ -707,6 +707,86 @@ button {
   font-size: 1rem;
 }
 
+.board-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.board-panel[hidden] {
+  display: none;
+}
+
+.notice-list {
+  display: grid;
+  gap: 10px;
+}
+
+.notice-item {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.notice-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  font-weight: 650;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.notice-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.notice-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.notice-date {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.notice-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.notice-item[open] summary::after {
+  content: "–";
+}
+
+.notice-item .answer {
+  padding: 0 20px 20px;
+  color: var(--ink-soft);
+  border-top: 1px solid transparent;
+}
+
+.notice-item[open] .answer {
+  border-top-color: var(--line);
+  padding-top: 16px;
+}
+
+.notice-item .answer p {
+  margin: 0 0 10px;
+}
+
+.notice-item .answer p:last-child {
+  margin-bottom: 0;
+}
+
 .faq-list {
   display: grid;
   gap: 10px;
@@ -1063,6 +1143,10 @@ button {
 
   .filters {
     gap: 6px;
+  }
+
+  .notice-item summary {
+    flex-wrap: wrap;
   }
 
   .filter-btn {

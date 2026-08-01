@@ -91,4 +91,36 @@
       applyFilter(active.getAttribute("data-filter"));
     }
   }
+
+  const boardTabs = document.querySelectorAll("[data-board-tab]");
+  const boardPanels = document.querySelectorAll("[data-board-panel]");
+
+  const showBoardTab = (name) => {
+    const key = name === "faq" ? "faq" : "notice";
+    boardTabs.forEach((tab) => {
+      const on = tab.getAttribute("data-board-tab") === key;
+      tab.classList.toggle("is-active", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    boardPanels.forEach((panel) => {
+      const on = panel.getAttribute("data-board-panel") === key;
+      panel.classList.toggle("is-active", on);
+      panel.hidden = !on;
+    });
+    if (history.replaceState) {
+      history.replaceState(null, "", `#${key}`);
+    }
+  };
+
+  if (boardTabs.length && boardPanels.length) {
+    boardTabs.forEach((tab) => {
+      tab.addEventListener("click", () => showBoardTab(tab.getAttribute("data-board-tab")));
+    });
+    const hash = (location.hash || "").replace("#", "").toLowerCase();
+    showBoardTab(hash === "faq" ? "faq" : "notice");
+    window.addEventListener("hashchange", () => {
+      const next = (location.hash || "").replace("#", "").toLowerCase();
+      showBoardTab(next === "faq" ? "faq" : "notice");
+    });
+  }
 })();
