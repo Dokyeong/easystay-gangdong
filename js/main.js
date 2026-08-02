@@ -105,4 +105,48 @@
       });
     });
   }
+
+  const popupRoot = document.getElementById("homePopup");
+  if (popupRoot) {
+    const storageKey = "es-home-popup-hide";
+    const today = new Date().toISOString().slice(0, 10);
+    const hideToday = document.getElementById("popupHideToday");
+
+    const lockScroll = (on) => {
+      document.body.style.overflow = on ? "hidden" : "";
+    };
+
+    const closePopup = () => {
+      if (hideToday?.checked) {
+        try {
+          localStorage.setItem(storageKey, today);
+        } catch (_) {}
+      }
+      popupRoot.hidden = true;
+      lockScroll(false);
+    };
+
+    const showPopup = () => {
+      if (hideToday) hideToday.checked = false;
+      popupRoot.hidden = false;
+      lockScroll(true);
+    };
+
+    popupRoot.querySelectorAll("[data-popup-close]").forEach((el) => {
+      el.addEventListener("click", closePopup);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !popupRoot.hidden) closePopup();
+    });
+
+    let hiddenToday = false;
+    try {
+      hiddenToday = localStorage.getItem(storageKey) === today;
+    } catch (_) {}
+
+    if (!hiddenToday) {
+      window.setTimeout(showPopup, 400);
+    }
+  }
 })();
