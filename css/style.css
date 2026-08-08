@@ -1018,6 +1018,17 @@ button {
   font-size: 0.92rem;
 }
 
+.footer-meta li {
+  display: grid;
+  grid-template-columns: 5.6em 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.footer-meta .label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 .footer-meta a:hover {
   color: var(--white);
 }
