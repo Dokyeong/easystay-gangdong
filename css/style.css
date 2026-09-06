@@ -1328,6 +1328,17 @@ button {
 
 .popup-dismiss {
   min-width: 96px;
+  border: 1px solid rgba(28, 33, 40, 0.55);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+.popup-dismiss:hover,
+.popup-dismiss:focus-visible {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
 }
 
 .popup-hide-today {

@@ -69,7 +69,18 @@
     empty.classList.toggle("is-visible", emptyTypes.includes(type));
   };
 
+  const loadImagesForType = (type) => {
+    items.forEach((item) => {
+      if (item.getAttribute("data-type") !== type) return;
+      const image = item.querySelector("img[data-src]");
+      if (!image) return;
+      image.src = image.dataset.src;
+      image.removeAttribute("data-src");
+    });
+  };
+
   const applyFilter = (type) => {
+    loadImagesForType(type);
     items.forEach((item) => {
       item.classList.toggle("is-hidden", item.getAttribute("data-type") !== type);
     });
